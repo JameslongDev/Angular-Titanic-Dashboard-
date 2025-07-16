@@ -1,0 +1,109 @@
+$primary-color: #007bff;
+$border-color: #e9ecef;
+$text-color: #6c757d;
+$danger-color: #dc3545;
+$success-color: #28a745;
+
+.comment-section {
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+}
+
+h5 {
+  margin-top: 0;
+  color: #495057;
+}
+
+.comment-list {
+  max-height: 180px;
+  margin-bottom: 1rem;
+  padding-right: 5px;
+}
+
+.no-comments {
+  color: $text-color;
+  font-style: italic;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.comment-item {
+  border-bottom: 1px solid $border-color;
+  padding: 0.75rem 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.comment-display {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.comment-actions button,
+.edit-actions button {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  color: white;
+
+  &.edit { background-color: $primary-color; }
+  &.delete { background-color: $danger-color; }
+  &.save { background-color: $success-color; }
+  &.cancel { background-color: $text-color; }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.comment-edit {
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .edit-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
+.add-comment {
+  display: flex;
+  gap: 0.5rem;
+  
+  input {
+    flex-grow: 1;
+    padding: 0.6rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}

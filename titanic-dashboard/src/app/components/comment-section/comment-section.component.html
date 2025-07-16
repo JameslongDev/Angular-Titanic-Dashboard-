@@ -1,0 +1,37 @@
+<div class="comment-section">
+
+  <h5>Comments</h5>
+
+  <div class="comment-list">
+    
+    <div *ngIf="comments.length === 0" class="no-comments">
+      No comments yet.
+    </div>
+
+    <div *ngFor="let comment of comments" class="comment-item">
+      
+      <div *ngIf="editingCommentId !== comment.id" class="comment-display">
+        <p>{{ comment.text }}</p>
+        <div class="comment-actions">
+          <button class="edit" (click)="enableEditing(comment)">Edit</button>
+          <button class="delete" (click)="deleteComment(comment.id)">Delete</button>
+        </div>
+      </div>
+
+      <div *ngIf="editingCommentId === comment.id" class="comment-edit">
+        <input [(ngModel)]="editingText" (keyup.enter)="saveEdit(comment.id)" (keyup.escape)="cancelEditing()">
+        <div class="edit-actions">
+          <button class="save" (click)="saveEdit(comment.id)">Save</button>
+          <button class="cancel" (click)="cancelEditing()">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="add-comment">
+    <input [(ngModel)]="newCommentText" placeholder="Add a comment..." (keyup.enter)="addComment()">
+    <button (click)="addComment()">Add Comment</button>
+  </div>
+  
+</div>

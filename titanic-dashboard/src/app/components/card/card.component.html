@@ -1,0 +1,28 @@
+<div class="chart-card">
+  <div class="card-content">
+    <h3>{{ title }}</h3>
+    <div class="chart-container">
+
+      <ng-container>
+        <ng-container [ngSwitch]="chartType">
+          <ngx-charts-pie-chart
+            *ngSwitchCase="'pie'"
+            [scheme]="colorScheme"
+            [results]="chartData"
+            [legend]="showLegend"
+            [labels]="showLabels">
+          </ngx-charts-pie-chart>
+
+          <ngx-charts-bar-vertical
+            *ngSwitchCase="'bar'"
+            [scheme]="colorScheme"
+            [results]="chartData"
+            [legend]="showLegend">
+          </ngx-charts-bar-vertical>
+        </ng-container>
+      </ng-container>
+
+    </div>
+  </div>
+  <app-comment-section [chartId]="chartId"></app-comment-section>
+</div>
